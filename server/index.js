@@ -20,6 +20,11 @@ app.get('/', (req,res) => {
     rollbar.info('html file served successfully.')
 })
 
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname, '../styles.css'))
+    rollbar.info('css file served')
+})
+
 app.post('/api/student', (req, res)=>{
     let {name} = req.body
     name = name.trim()
